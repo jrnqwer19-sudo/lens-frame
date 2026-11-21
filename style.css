@@ -61,7 +61,7 @@ main { flex: 1; }
 .kicker {
   display: inline-flex; align-items: center; gap: 10px;
   color: var(--amber); font-weight: 800; font-size: 0.85rem;
-  letter-spacing: 2px; margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 .kicker .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px var(--amber); animation: pulse 2s ease-in-out infinite; }
 .sec-title { font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 900; line-height: 1.4; }
@@ -94,7 +94,7 @@ main { flex: 1; }
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
-.nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.nav-wrap { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
 .brand { display: inline-flex; align-items: center; gap: 12px; }
 .aperture {
   width: 40px; height: 40px; border-radius: 50%; flex: none;
@@ -132,7 +132,8 @@ main { flex: 1; }
   color: var(--amber-light); font-weight: 700; font-size: 0.92rem;
   margin-bottom: 28px;
 }
-.hero h1 { font-size: clamp(3rem, 11vw, 6.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+.hero-title { font-size: clamp(3rem, 11vw, 6.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px; }
+.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px var(--amber); animation: pulse 2s ease-in-out infinite; }
 .hero-lead { color: var(--muted); max-width: 620px; margin: 0 auto 38px; font-size: clamp(1rem, 2.4vw, 1.16rem); }
 .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
@@ -144,7 +145,7 @@ main { flex: 1; }
   background: rgba(240, 168, 60, 0.06);
 }
 
-.hero-visual { margin-top: 64px; display: flex; justify-content: center; }
+.hero-visual { position: relative; width: min(320px, 76vw); margin: 64px auto 0; }
 .lens { position: relative; width: min(320px, 76vw); aspect-ratio: 1; animation: float 7s ease-in-out infinite; }
 .ring { position: absolute; border-radius: 50%; border: 1px solid rgba(240, 168, 60, 0.35); }
 .ring-1 { inset: 0; }
@@ -177,7 +178,7 @@ main { flex: 1; }
 .film-strip { position: absolute; bottom: 0; inset-inline: 0; height: 44px; background: linear-gradient(180deg, rgba(240, 168, 60, 0.14), rgba(240, 168, 60, 0.02)); border-top: 2px solid rgba(240, 168, 60, 0.55); }
 
 /* ===== الشريط المتحرك ===== */
-.marquee { overflow: hidden; border-block: 1px solid var(--line); background: linear-gradient(90deg, rgba(217, 126, 53, 0.16), rgba(240, 168, 60, 0.1), rgba(217, 126, 53, 0.16)); padding: 16px 0; }
+.marquee { overflow: hidden; direction: ltr; border-block: 1px solid var(--line); background: linear-gradient(90deg, rgba(217, 126, 53, 0.16), rgba(240, 168, 60, 0.1), rgba(217, 126, 53, 0.16)); padding: 16px 0; }
 .marquee-track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
 .mq { display: inline-flex; align-items: center; gap: 44px; padding-inline-end: 44px; font-weight: 800; color: var(--amber-light); white-space: nowrap; font-size: 1.05rem; }
 .mq::after { content: ""; width: 10px; height: 10px; background: var(--amber); transform: rotate(45deg); }
@@ -199,7 +200,7 @@ main { flex: 1; }
 .cam-lg { width: 128px; height: 92px; }
 .cam-top { position: absolute; top: 0; left: 8px; right: 8px; height: 13px; background: #17100a; border-radius: 7px 7px 0 0; border-bottom: 1px solid rgba(240, 168, 60, 0.35); }
 .cam-body { position: absolute; top: 13px; left: 9px; right: 9px; bottom: 9px; background: radial-gradient(circle at 50% 40%, #4a341f, #2a1a0e); border-radius: 7px; border: 1px solid rgba(240, 168, 60, 0.25); }
-.cam-lens { position: absolute; top: 50%; inset-inline-start: 50%; transform: translateX(-50%); width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--amber); background: radial-gradient(circle at 35% 30%, #fff3dd, #f0a83c 55%, #7a3b12); box-shadow: 0 0 16px rgba(240, 168, 60, 0.6), inset 0 0 9px rgba(50, 20, 5, 0.8); }
+.cam-lens { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 30px; height: 30px; border-radius: 50%; border: 2px solid var(--amber); background: radial-gradient(circle at 35% 30%, #fff3dd, #f0a83c 55%, #7a3b12); box-shadow: 0 0 16px rgba(240, 168, 60, 0.6), inset 0 0 9px rgba(50, 20, 5, 0.8); }
 .cam-lens i { position: absolute; inset: 38%; border-radius: 50%; background: #150f0a; }
 .cam-flash { position: absolute; top: 4px; inset-inline-end: 8px; width: 13px; height: 9px; background: #f8cd8d; border-radius: 3px; }
 .sliders { width: 150px; display: flex; flex-direction: column; gap: 9px; }
@@ -208,10 +209,10 @@ main { flex: 1; }
 .pallet i { width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #f8cd8d, #c96f3b); }
 .timeline { position: relative; width: 170px; height: 64px; }
 .strip { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background: rgba(255, 244, 228, 0.16); transform: translateY(-50%); }
-.clips { position: absolute; top: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%); display: flex; gap: 7px; }
+.clips { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 7px; }
 .clips i { width: 20px; height: 28px; border-radius: 5px; background: linear-gradient(180deg, var(--amber), var(--copper)); }
-.play { position: absolute; top: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(21, 15, 10, 0.9); border: 2px solid var(--amber); display: grid; place-items: center; }
-.play::after { content: ""; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-inline-start: 14px solid var(--amber); }
+.play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(21, 15, 10, 0.9); border: 2px solid var(--amber); display: grid; place-items: center; }
+.play::after { content: ""; width: 0; height: 0; border-top: 9px solid transparent; border-bottom: 9px solid transparent; border-left: 14px solid var(--amber); margin-inline-start: 4px; }
 .card-top { display: flex; justify-content: space-between; align-items: center; }
 .num { font-size: 2.6rem; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(240, 168, 60, 0.75); }
 .tag { font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; color: var(--amber-light); border: 1px solid var(--line-strong); padding: 5px 12px; border-radius: 999px; }
@@ -256,6 +257,18 @@ main { flex: 1; }
 .service-row.flip .srv-visual { order: 2; }
 .srv-visual { position: relative; display: grid; place-items: center; min-height: 300px; border-radius: 20px; border: 1px solid var(--line); background: radial-gradient(circle at 50% 120%, rgba(240, 168, 60, 0.22), transparent 70%); overflow: hidden; }
 .orbit { position: absolute; width: 300px; height: 300px; border-radius: 50%; border: 1px dashed rgba(248, 205, 141, 0.4); animation: spin 40s linear infinite; }
+/* رقائق العدسة داخل مشهد الخدمة (بلا قص) */
+.srv-visual .fc-1 { top: 7%; inset-inline-start: 6%; }
+.srv-visual .fc-2 { bottom: 8%; inset-inline-end: 6%; }
+/* تكبير الفن داخل مشهد الخدمة */
+.srv-visual .cam-lg { width: 150px; height: 106px; }
+.srv-visual .cam-lg .cam-lens { width: 42px; height: 42px; }
+.srv-visual .sliders { width: 210px; gap: 14px; }
+.srv-visual .row { height: 10px; }
+.srv-visual .timeline { width: 240px; height: 84px; }
+.srv-visual .clips i { width: 26px; height: 36px; }
+.srv-visual .play { width: 54px; height: 54px; }
+.srv-visual .play::after { border-top-width: 12px; border-bottom-width: 12px; border-left-width: 19px; }
 .srv-copy { position: relative; }
 .srv-top { display: flex; align-items: center; gap: 16px; justify-content: flex-start; margin-bottom: 10px; }
 .srv-num { font-size: 2.6rem; font-weight: 900; line-height: 1; color: transparent; -webkit-text-stroke: 2px rgba(240, 168, 60, 0.8); }
@@ -276,6 +289,7 @@ main { flex: 1; }
 .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .ccard { position: relative; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255, 244, 228, 0.05), rgba(255, 244, 228, 0.015)); padding: 34px 26px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; overflow: hidden; transition: transform 0.45s ease, border-color 0.45s, box-shadow 0.45s; }
 .ccard:hover { transform: translateY(-8px); border-color: var(--line-strong); box-shadow: var(--shadow-lg), 0 0 60px rgba(240, 168, 60, 0.12); }
+.ccard-wa { border-color: var(--line-strong); background: linear-gradient(180deg, rgba(240, 168, 60, 0.12), rgba(240, 168, 60, 0.02)); }
 .cicon { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--line-strong); background: radial-gradient(circle at 35% 30%, rgba(248, 205, 141, 0.25), rgba(201, 111, 59, 0.12)); display: grid; place-items: center; margin-bottom: 6px; }
 .cicon i { width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--amber); background: radial-gradient(circle at 35% 30%, #fff3dd, #f0a83c 55%, #7a3b12); box-shadow: 0 0 14px rgba(240, 168, 60, 0.6); }
 .c-big { font-size: 1.5rem; font-weight: 900; }
@@ -327,7 +341,7 @@ main { flex: 1; }
 @keyframes sweep { to { transform: rotate(360deg); } }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 @keyframes ping { 0% { transform: translate(-50%, -50%) scale(0.6); opacity: 0.9; } 100% { transform: translate(-50%, -50%) scale(1.9); opacity: 0; } }
-@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-25%); } }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -349,7 +363,7 @@ main { flex: 1; }
   .main-nav.open { display: block; }
   .main-nav ul { flex-direction: column; gap: 0; padding: 10px 5%; }
   .main-nav a { padding: 13px 14px; border-radius: 12px; }
-  .nav-cta { margin-top: 10px; text-align: center; }
+  .nav-cta { display: inline-block; margin-top: 10px; text-align: center; }
 }
 
 @media (max-width: 640px) {
